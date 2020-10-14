@@ -4,7 +4,7 @@
 
 # Cluster Variables
   {{$NODE_MODE := DefaultParam .NODE_MODE "allnodes"}}
-  {{$NODES_PER_NAMESPACE := DefaultParam .NODES_PER_NAMESPACE 100}}
+  {{$NODES_PER_NAMESPACE := DefaultParam .NODES_PER_NAMESPACE 3}}
 
 # Test Variales
   {{$PODS_PER_NODE := .PODS_PER_NODE}}
