@@ -1,3 +1,4 @@
+---
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
@@ -8,3 +9,21 @@ parameters:
 {{if .RetainPD}}
 reclaimPolicy: Retain
 {{end}}
+---
+allowVolumeExpansion: true
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  annotations:
+    storageclass.beta.kubernetes.io/is-default-class: 'true'
+  labels:
+    k8s-addon: storage-aws.addons.k8s.io
+  name: kops-ssd-1-17
+parameters:
+  encrypted: 'true'
+  type: gp2
+{{if .RetainPD}}
+reclaimPolicy: Retain
+{{end}}
+provisioner: kubernetes.io/aws-ebs
+volumeBindingMode: WaitForFirstConsumer
