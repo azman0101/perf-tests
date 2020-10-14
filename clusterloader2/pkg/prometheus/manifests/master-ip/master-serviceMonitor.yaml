@@ -22,7 +22,8 @@ spec:
     port: node-exporter
     scrapeTimeout: 20s
   {{end}}
-  - interval: 5s
+  - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    interval: 5s
     port: apiserver
     scheme: https
     tlsConfig:
