@@ -43,7 +43,7 @@ import (
 
 const (
 	namespace                    = "monitoring"
-	storageClass                 = "kops-ssd-1-17"
+	storageClass                 = "ssd"
 	checkPrometheusReadyInterval = 30 * time.Second
 	checkPrometheusReadyTimeout  = 15 * time.Minute
 	numK8sClients                = 1

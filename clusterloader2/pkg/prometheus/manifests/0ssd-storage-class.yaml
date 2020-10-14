@@ -1,15 +1,4 @@
 ---
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: ssd
-provisioner: kubernetes.io/gce-pd
-parameters:
-  type: pd-ssd
-{{if .RetainPD}}
-reclaimPolicy: Retain
-{{end}}
----
 allowVolumeExpansion: true
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -18,7 +7,7 @@ metadata:
     storageclass.beta.kubernetes.io/is-default-class: 'true'
   labels:
     k8s-addon: storage-aws.addons.k8s.io
-  name: kops-ssd-1-17
+  name: ssd
 parameters:
   encrypted: 'true'
   type: gp2
